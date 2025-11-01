@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Your Name</title>
+  <style>
+    :root{
+      --bg1:#0f0c29; /* deep indigo */
+      --bg2:#302b63; /* purple */
+      --accent1:#ff4d6d; /* pink-red */
+      --accent2:#00d2ff; /* electric cyan */
+      --card:#11121a;
+      --glass: rgba(255,255,255,0.06);
+      --glass-strong: rgba(255,255,255,0.08);
+      --text:#e9eef8;
+    }
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color:var(--text);
+      background:linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 50%);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.4;
+      padding:40px 24px;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px;
+    }
+    .logo{
+      display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;letter-spacing:0.6px;
+    }
+    .logo .mark{
+      width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent2),var(--accent1));
+      display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,0.45);font-weight:800;color:#041017
+    }
+
+    nav a{color:var(--text);text-decoration:none;margin-left:18px;font-weight:600;opacity:0.92}
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;padding:28px;display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:center;margin-bottom:28px;box-shadow:0 8px 40px rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+    }
+    .hero .intro h1{font-size:34px;margin-bottom:10px}
+    .hero .intro p{color:rgba(233,238,248,0.85);margin-bottom:16px}
+    .cta-row{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:12px;font-weight:700;border:0;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#051018;box-shadow:0 8px 20px rgba(0,0,0,0.35)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+
+    .hero .info-card{background:linear-gradient(180deg,var(--glass), transparent);border-radius:12px;padding:18px;color:var(--text);}
+    .info-item{display:flex;align-items:center;gap:12px;padding:8px 0}
+    .info-item b{min-width:70px;display:inline-block;color:rgba(233,238,248,0.95)}
+    .highlight{background:linear-gradient(90deg,var(--accent2),var(--accent1));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+
+    /* Portfolio grid */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+    .card{background:var(--card);border-radius:12px;padding:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.45);transition:transform .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.55)}
+    .thumb{height:140px;border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));display:flex;align-items:center;justify-content:center;font-weight:800;color:rgba(255,255,255,0.12);margin-bottom:12px}
+    .card h3{margin-bottom:6px}
+    .card p{font-size:14px;color:rgba(233,238,248,0.78)}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 420px;gap:18px}
+    form{background:linear-gradient(180deg,var(--glass),transparent);padding:18px;border-radius:12px}
+    label{display:block;font-weight:700;margin-bottom:8px}
+    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text);margin-bottom:12px}
+    .meta-note{font-size:12px;color:rgba(233,238,248,0.6)}
+
+    footer{margin-top:28px;text-align:center;color:rgba(233,238,248,0.6)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .projects{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+    }
+
+    /* Small entrance animation */
+    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .7s ease forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="fade-up">
+      <div class="logo">
+        <div class="mark">PK</div>
+        <div>
+          <div style="font-size:14px;">Portfolio</div>
+          <div style="font-size:12px;opacity:.75">Eye-catching design</div>
+        </div>
+      </div>
+      <nav class="fade-up">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero fade-up">
+      <div class="intro">
+        <h1 id="hero-name">Mironshoh Nemathonov</h1>
+        <p id="hero-bio">Men — front-end developer va dizayner. Bu sayt mening ishlarimni va loyihalarimni namoyish qilish uchun mo‘ljallangan. Quyida temir (Fe) haqida qisqacha ma'lumot ham keltirilgan.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary">View Projects</button>
+          <button class="btn btn-ghost">Download CV</button>
+        </div>
+        <div style="margin-top:12px;font-size:13px;color:rgba(233,238,248,0.75)">Eye-catching style: gradient accents, card lift, and subtle animation.</div>
+      </div>
+
+      <aside class="info-card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="width:96px;height:96px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));display:flex;align-items:center;justify-content:center">
+            <img id="profile-pic" src="https://images.unsplash.com/photo-1545996124-5b1d9afb3b5b?q=80&w=800&auto=format&fit=crop" alt="Profile picture" style="width:100%;height:100%;object-fit:cover;display:block" \/>
+            <div id="profile-pic-placeholder" style="font-weight:800;color:rgba(255,255,255,0.12)">Avatar</div>
+          </div>
+          <div style="flex:1">
+            <div class="info-item"><b>Email:</b> <span class="highlight" id="placeholder-email">mironshohnemathonov@gmail.com</span</span></div>
+            <div class="info-item"><b>Phone:</b> <span class="highlight" id="placeholder-phone">97 051 18 58</span></span></div>
+            <div class="info-item"><b>Location:</b> <span id="placeholder-location">[City, Country]</span></div>
+            <div style="height:10px"></div>
+            <label for="profile-pic-input" style="font-size:13px;font-weight:700;cursor:pointer;display:inline-block;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);">Upload avatar</label>
+            <input id="profile-pic-input" type="file" accept="image/*" style="display:none" />
+            <div style="height:8px"></div>
+            <div class="meta-note">* Quyidagi ma'lumotlar sahifaga qo'shildi: Ism, Familiya, Email va Telefon. Temir haqida qisqacha ma'lumot pastda keltirilgan.</div>
+          <div style="height:10px"></div>
+          <h4>Temir (Fe) haqida qisqacha ma'lumot</h4>
+          <p>Temir — kimyoviy elementi Fe bilan belgilanadi, atom raqami 26. U qattiq, oson ishlab chiqariluvchi metall bo‘lib, sanoatda eng ko‘p ishlatiladigan materiallardan biridir. Temir po‘lat yoki rux bilan qotishmalarda (masalan, po‘lat) ishlatiladi va qurilish, avtomobilsozlik, asbobsozlikda muhim rol o‘ynaydi. Temir biologiyada ham muhim: qonni kislorod bilan bog‘laydigan gemoglobin tarkibida temir mavjud. Temirning erish nuqtasi taxminan 1538°C, zichligi 7.87 g/cm³ atrofida.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" class="fade-up">
+      <h2 style="margin-bottom:12px">Ishlarim</h2>
+      <div class="projects">
+        <!-- Project 1 -->
+        <article class="card">
+          <div class="thumb"><img id="proj-img-1" src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200&auto=format&fit=crop" alt="Project 1" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:10px" \/><span class="proj-placeholder" style="display:none">Project Image</span></div>
+          <h3>Project Title 1</h3>
+          <p>Short description. <strong>Technologies:</strong> HTML, CSS, JS</p>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <label for="proj-input-1" style="cursor:pointer;font-weight:700;color:var(--accent2);">Upload image</label>
+            <input id="proj-input-1" type="file" accept="image/*" style="display:none" />
+            <a href="#" style="color:var(--accent2);font-weight:700;text-decoration:none">View live →</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card">
+          <div class="thumb"><img id="proj-img-2" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project 2" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:10px" \/><span class="proj-placeholder" style="display:none">Project Image</span></div>
+          <h3>Project Title 2</h3>
+          <p>Short description. <strong>Technologies:</strong> React, Tailwind</p>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <label for="proj-input-2" style="cursor:pointer;font-weight:700;color:var(--accent2);">Upload image</label>
+            <input id="proj-input-2" type="file" accept="image/*" style="display:none" />
+            <a href="#" style="color:var(--accent2);font-weight:700;text-decoration:none">View repo →</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card">
+          <div class="thumb"><img id="proj-img-3" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Project 3" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:10px" \/><span class="proj-placeholder" style="display:none">Project Image</span></div>
+          <h3>Project Title 3</h3>
+          <p>Short description. <strong>Technologies:</strong> UI/UX, Figma</p>
+          <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+            <label for="proj-input-3" style="cursor:pointer;font-weight:700;color:var(--accent2);">Upload image</label>
+            <input id="proj-input-3" type="file" accept="image/*" style="display:none" />
+            <a href="#" style="color:var(--accent2);font-weight:700;text-decoration:none">Preview →</a>
+          </div>
+        </article>
+
+      </div>
+          <h3>Project Title 1</h3>
+          <p>Short description. <strong>Technologies:</strong> HTML, CSS, JS</p>
+          <div style="margin-top:10px"><a href="#" style="color:var(--accent2);font-weight:700;text-decoration:none">View live →</a></div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card">
+          <div class="thumb">Project Image</div>
+          <h3>Project Title 2</h3>
+          <p>Short description. <strong>Technologies:</strong> React, Tailwind</p>
+          <div style="margin-top:10px"><a href="#" style="color:var(--accent2);font-weight:700;text-decoration:none">View repo →</a></div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card">
+          <div class="thumb">Project Image</div>
+          <h3>Project Title 3</h3>
+          <p>Short description. <strong>Technologies:</strong> UI/UX, Figma</p>
+          <div style="margin-top:10px"><a href="#" style="color:var(--accent2);font-weight:700;text-decoration:none">Preview →</a></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact" class="fade-up">
+      <h2 style="margin-bottom:12px">Aloqa</h2>
+      <div class="contact">
+        <div>
+          <p class="meta-note">Agar kimdir siz bilan bog'lanishini xohlasa, ular quyidagi formani to'ldirishi mumkin. (Form — faqat frontend; backend yo'q.)</p>
+          <form onsubmit="event.preventDefault();alert('Form submission is placeholder — connect backend to process.');">
+            <label for="name">Ism</label>
+            <input id="name" placeholder="Sizning ismingiz" />
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="your.email@example.com" />
+
+            <label for="phone">Telefon</label>
+            <input id="phone" placeholder="+998 90 123 45 67" />
+
+            <label for="message">Xabar</label>
+            <textarea id="message" rows="4" placeholder="Qisqacha xabaringizni yozing"></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center">
+              <button class="btn btn-primary" type="submit">Send</button>
+              <div class="meta-note">Yoki to'g'ridan-to'g'ri email yuboring: <span class="highlight">[your.email@example.com]</span></div>
+            </div>
+          </form>
+        </div>
+
+        <aside style="background:linear-gradient(180deg,var(--glass-strong),transparent);padding:18px;border-radius:12px">
+          <h3 style="margin-bottom:10px">Shaxsiy ma'lumotlar (placeholder)</h3>
+          <p><b>To'liq ism:</b> <span id="profile-fullname">Mironshoh Nemathonov</span></p>
+          <p><b>Yosh / Tajriba:</b> <span id="profile-experience">5 yil — Frontend developer</span></p>
+          <p><b>Ko'nikmalar:</b> <span id="profile-skills">HTML, CSS, JavaScript, React, UI dizayn</span></p>
+
+          <div style="height:12px"></div>
+          <div class="meta-note">HTML fayl ichida <code>id="profile-*"</code> yoki <code>id="placeholder-*"</code> joylarini o'zingizning haqiqiy ma'lumotlaringizga almashtiring.</div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="fade-up">Made with ✨ — fill in your details in the placeholders above.</footer>
+  </div>
+
+  <script>
+    // Small script to guide user to placeholders on first load
+    (function(){
+      const placeholders = document.querySelectorAll('[id^="placeholder"],[id^="profile-"]');
+      if(placeholders.length){
+        // add a faint pulsing border to each placeholder so they're visible
+        placeholders.forEach(el=>{
+          el.style.transition = 'box-shadow .6s ease';
+          el.style.boxShadow = '0 0 0 3px rgba(255,255,255,0.02)';
+        });
+      }
+
+      // Profile pic preview
+      const profileInput = document.getElementById('profile-pic-input');
+      const profileImg = document.getElementById('profile-pic');
+      const profilePlaceholder = document.getElementById('profile-pic-placeholder');
+      if(profileInput){
+        profileInput.addEventListener('change', e => {
+          const file = e.target.files && e.target.files[0];
+          if(!file) return;
+          const url = URL.createObjectURL(file);
+          profileImg.src = url; profileImg.style.display = 'block'; profilePlaceholder.style.display = 'none';
+        });
+      }
+
+      // Project images preview
+      for(let i=1;i<=3;i++){
+        const inp = document.getElementById('proj-input-'+i);
+        const img = document.getElementById('proj-img-'+i);
+        const thumb = img ? img.parentElement.querySelector('.proj-placeholder') : null;
+        if(inp && img){
+          inp.addEventListener('change', e=>{
+            const f = e.target.files && e.target.files[0]; if(!f) return;
+            const u = URL.createObjectURL(f);
+            img.src = u; img.style.display = 'block'; if(thumb) thumb.style.display = 'none';
+          });
+        }
+      }
+
+    })();
+  </script>
+</body>
+</html>
